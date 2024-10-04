@@ -1,0 +1,5 @@
+[32m[0807 17:24:50 @logger.py:92][0m Argv: Home.py
+[32m[0807 17:24:50 @attack_net.py:125][0m <class 'ANNT.DataSets.mnist.GetMnist'>
+[32m[0807 17:24:51 @collection.py:146][0m New collections created in tower : logits of size 1
+[32m[0807 17:24:51 @sessinit.py:87][0m [5m[31mWRN[0m The following variables are in the checkpoint, but not found in the graph: global_step, learning_rate
+[32m[0807 17:24:51 @sessinit.py:114][0m Restoring checkpoint from ./logs/train_log/cw_mnist-mnist-FP/min-val_cross_entropy_loss ...

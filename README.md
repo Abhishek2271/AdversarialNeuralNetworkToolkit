@@ -1,11 +1,6 @@
-# Advesarial Neural Network Toolbox
+## Adversarial Neural Network Toolkit
 
-This tool was used to perform experiments for our paper "Properties that allow or prohibit transferability of adversarial examples" published on the [5th ACM/IEEE International Conference on Automation of Software Test](https://conf.researchr.org/home/ast-2024#the-5th-acmieee-international-conference-on-automation-of-software-test-ast-2024) .  
-
-All references and works used along with libraries are mentioned within this readme and also within codes. 
-
---------------------------------------------------------
-The source code in the repository is a Python API that is able to fulfill a complete workflow of:
+The source code in the repository is a Python API that is able to fulfil a complete workflow of:
 1. Traning full-precision and quantized neural networks.
 2. Creating adversarial examples on these networks.
 3. Transfering adversarial examples from the network where samples are created (source) to another (target) network.

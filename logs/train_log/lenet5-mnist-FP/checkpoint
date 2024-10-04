@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\Users\\sab\\Downloads\\AI Testing\\Source\\Dorefanet\\tensorpack\\FullPrecisionModels\\logs\\train_log\\LENET_ABC\\LENET5_A\\MNIST-FP\\_Model_9380_samp"
+all_model_checkpoint_paths: "C:\\Users\\sab\\Downloads\\AI Testing\\Source\\Dorefanet\\tensorpack\\FullPrecisionModels\\logs\\train_log\\LENET_ABC\\LENET5_A\\MNIST-FP\\_Model_9380_samp"

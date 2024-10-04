@@ -1,0 +1,11 @@
+[1004 11:17:36 @logger.py:92] Argv: /home/nushi/.local/lib/python3.7/site-packages/ipykernel_launcher.py --f=/home/nushi/.local/share/jupyter/runtime/kernel-v31d163a5e8441f557b380ea0570101e954e464cde.json
+[1004 11:17:36 @varmanip.py:215] Checkpoint path logs/train_log/cifar_a-cifar10-FP/min-val_cross_entropy_loss.data-00000-of-00001 is auto-corrected to logs/train_log/cifar_a-cifar10-FP/min-val_cross_entropy_loss.
+[1004 11:17:37 @collection.py:146] New collections created in tower : logits of size 1
+[1004 11:17:37 @sessinit.py:87] WRN The following variables are in the checkpoint, but not found in the graph: beta1_power, beta2_power, global_step, learning_rate
+[1004 11:17:37 @sessinit.py:114] Restoring checkpoint from logs/train_log/cifar_a-cifar10-FP/min-val_cross_entropy_loss ...
+[1004 11:17:50 @inference_core.py:548] Total  benign images  classified correctly by the network : (8894, 32, 32, 3) 
+[1004 11:17:51 @inference_core.py:555] Total  benign images  classified incorrectly by the network : (1106, 32, 32, 3) 
+[1004 11:17:51 @inference_core.py:123] The overall accuracy of the model: 0.8894, error: 0.1106 
+[1004 11:17:52 @collection.py:146] New collections created in tower : logits of size 1
+[1004 11:17:52 @sessinit.py:87] WRN The following variables are in the checkpoint, but not found in the graph: beta1_power, beta2_power, global_step, learning_rate
+[1004 11:17:52 @sessinit.py:114] Restoring checkpoint from logs/train_log/cifar_a-cifar10-FP/min-val_cross_entropy_loss ...
