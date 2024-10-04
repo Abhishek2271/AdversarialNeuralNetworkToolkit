@@ -1,15 +1,22 @@
 ## Adversarial Neural Network Toolkit
 
-The source code in the repository is a Python API that is able to fulfil a complete workflow of:
+The source code in the repository is a Python tool that is able to fulfil a complete workflow of:
 1. Traning full-precision and quantized neural networks.
 2. Creating adversarial examples on these networks.
 3. Transfering adversarial examples from the network where samples are created (source) to another (target) network.
 
-The API uses Tensropack [(Y. Wu et al., 2016)](https://github.com/tensorpack) for training. Tensorpack is training framework which a part of TensorFlow 1.13 [(Abadi et al., 2016)](https://www.tensorflow.org) API.  
-For quantization DoReFa-Net method [(Zhou et al., 2018)](https://arxiv.org/abs/1606.06160) is used
+The tool can be used in two ways:
+1. As a standalone Python based console application which executes based on the configurations specified in a YAML file (ANNT/config.yaml). More details: [wiki](https://github.com/Abhishek2271/AdversarialNeuralNetworkToolkit/wiki).
+3. As a Python library that can be imported. Individual modules (training, inference, creating adversarial examples, and transfer of adversarial examples) can be then done within a Python script.  
+   For this, please follow the examples in the .ipynb files in the root.
+   
+------
+
+The API uses Tensropack [(Y. Wu et al., 2016)](https://github.com/tensorpack) for training. Tensorpack is training framework which is a part of TensorFlow 1.13 [(Abadi et al., 2016)](https://www.tensorflow.org) API.  
+For quantization DoReFa-Net method [(Zhou et al., 2018)](https://arxiv.org/abs/1606.06160) is used.  
 For adversarial attack generation ART [(Nicolae et al., 2019)](https://arxiv.org/abs/1807.01069 ) is used. 
 
-The API is fairly simple to use. Details on how to use the api is in the [wiki](https://github.com/Abhishek2271/TransferabilityAnalysis/wiki) section.
+------
 
 # References
 ## Quantization is based on DoReFa-Net method as proposed in the paper: https://arxiv.org/abs/1606.06160  
