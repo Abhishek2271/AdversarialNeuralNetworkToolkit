@@ -5,7 +5,7 @@ The source code in the repository is a Python tool that is able to fulfil a comp
 2. Creating adversarial examples on these networks.
 3. Transfering adversarial examples from the network where samples are created (source) to another (target) network.
 
-The tool can be used in two ways:
+#### The tool can be used in two ways:
 1. As a standalone Python based console application which executes based on the configurations specified in a YAML file (ANNT/config.yaml). More details: [wiki](https://github.com/Abhishek2271/AdversarialNeuralNetworkToolkit/wiki).
 3. As a Python library that can be imported. Individual modules (training, inference, creating adversarial examples, and transfer of adversarial examples) can be then done within a Python script.  
    For this, please follow the examples in the .ipynb files in the root.
