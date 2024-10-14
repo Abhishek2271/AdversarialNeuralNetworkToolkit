@@ -43,7 +43,7 @@ inference-options:
   #specify inference options. Only relevant when task type is "inference"
   #load a saved model from disk. Currently only checkpoints are supported. 
   #if this is a quantized model then the precision SHOULD match the loaded model precision
-  load-model: C:\Users\sab\Downloads\AI Testing\Source\Dorefanet\tensorpack\FullPrecisionModels\logs\train_log\MODEL_A_B_C\MODEL_A_REGULARIZED\mnist-FP\_Model_3283
+  load-model: .. /logs/train_log/lenet5-mnist-FP/min-val_cross_entropy_loss
 
   #Give name of the model to use as a base graph. 
   #(supported) LeNet5, model_a,b,c (MNIST models)
@@ -77,7 +77,7 @@ attack-options:
   #enter options if you want to create attacks.
   create-attack:    
     #give a checkpoint of a model on which the adversarial images should be trained
-    load-model: C:\Users\sab\Downloads\AI Testing\Source\Dorefanet\tensorpack\FullPrecisionModels\logs\train_log\MODEL_A_B_C\MODEL_A_REGULARIZED\mnist-FP\_Model_3283
+    load-model: .. /logs/train_log/lenet5-mnist-FP/min-val_cross_entropy_loss
     #Give name of the model to use as a base graph. 
     #(supported) LeNet5, model_a,b,c (MNIST models)
     #Model name: (supported) cifar_a, cifar_b, cifar_c (CIFAR models)
@@ -89,6 +89,7 @@ attack-options:
     #    2. JSMA
     #    3. BA
     #    4. UAP
+    #    5. cwl2   
     algorithm: FGSM
     #Set true if the samples should be selected randomly from the input dataset to create adversarial samples
     randomize: True
@@ -96,11 +97,35 @@ attack-options:
     sample-limit: 2000
     #Number of times the attack algorithm should be executed for the given sample_limit (only set >1 when randomize = true)
     iterations: 1
-    #set if the benign examples should be prefiltered when creating adversarial examples. When true, only samples which are correctly classified by the classifier will be used to create adversarial examples
+    #set if the benign examples should be prefiltered when creating adversarial examples. 
+    #When true, only samples which are correctly classified by the classifier will be used to create adversarial examples
     prefiltered: True
-    #attack parameters
-    parameters: [1, 2, 10]
-  
+    #attack parameters, a list of parameters to control attack behaviour.
+    # for UAP use: [xi: (maximum allowed perturbation): value between 0 and 1, max_iter (number of iteration to run the algorithm): positive integer, eps: (perturbation per step, specific to FGSM)]
+    # for FGSM use: [epsilon (attack step size): value between 0 and 1]
+    # for JSMA use: [theta: (distortion introduced per selected feature per iteration): value between 0 and 1, gamma (percentage of pixels to be distorted): value between 0 and 1]
+    # for cw use: [
+            
+            #confidence_k: Confidence of adversarial examples where a higher value produces more distorted examples but classified with higher confidence as the target class,   
+            #
+            #targeted: Boolean. Set 0 for false 1 for true
+
+            #learning_rate: The initial learning rate for the attack algorithm. Smaller values produce better results but are slower to converge.
+
+            #max_iter: The maximum number of iterations.
+
+            #initial_const: The initial trade-off constant c to use to tune the relative importance of distance and confidence. If binary_search_steps is large, the initial constant is not important, as discussed in Carlini and Wagner (2016).
+
+            #batch_size: Size of the batch on which adversarial samples are generated.
+
+            #binary_search_steps: Number of times to adjust constant with binary search (positive value). If binary_search_steps is large, then the algorithm is not very sensitive to the value of initial_const. Note that the values gamma=0.999999 and c_upper=10e10 are hardcoded with the same values used by the authors of the method.
+
+            #max_halving: Maximum number of halving steps in the line search optimization.
+
+            #max_doubling: Maximum number of doubling steps in the line search optimization.
+            #]
+    # for BA use: [max_iter (number of iteration to run the algorithm)]
+    parameters: [1]  
     dataset: mnist
     #precision to train the model on. Specify nothing to train a "Full precision model" or "bitW, bitA, bitG" for quantized model
     targets: [] #list of target labels. If empty then the app will assume that this is untargetted attack
@@ -113,13 +138,13 @@ attack-options:
     source:
       #source images contain adv. images created from benign images that were all classified correctly by the source classifier
       #provide the .npz file. (format:  image, label, index)
-      source-images: C:\Users\sab\Downloads\AI Testing\Source\Dorefanet\tensorpack\FullPrecisionModels\logs\trained_images\BA\NEW CODE\MNIST\MODEL_A_REGULARIZED\100_ITT\mnist-FP\mnist_conv_adv_pre-FP--run-1__filtered.npz
+      source-images: .. /logs/trained_images/mnist-FP/mnist_conv_adv_pre-FP--run-0
       #source dataset from which the source_images were taken. This is required so that only correctly predicted images by target
       #is used during adversarial attacks
       source-data: mnist
     #location of the checkpoint containing target model parameters 
     target:
-      target-model: C:\Users\sab\Downloads\AI Testing\Source\Dorefanet\tensorpack\FullPrecisionModels\logs\train_log\LENET_ABC\LENET5_A\MNIST-FP\_Model_9380
+      target-model: .. /logs/train_log/lenet5-mnist-FP/min-val_cross_entropy_loss
       #taget base model. required to create graph
       target-base-model: lenet5
       #precision of target model
